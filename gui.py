@@ -41,5 +41,23 @@ for i in range(0,5):
     frame.place(x=(i*300)+20, y=200)
     canvas.pack()
 
+#Subtitulos-labels
+agregar = tk.Label(text="AGREGAR ESTUDIANTE",font=("arial",15,"bold"),bg="#6cd2d1")
+agregar.place(x=45,y=240)
+
+editar = tk.Label(text="EDITAR ESTUDIANTE",font=("arial",15,"bold"),bg="#6cd2d1")
+editar.place(x=360,y=240)
+
+eliminar = tk.Label(text="ELIMINAR ESTUDIANTE",font=("arial",15,"bold"),bg="#6cd2d1")
+eliminar.place(x=650,y=240)
+
+buscar = tk.Label(text="BUSCAR ESTUDIANTE",font=("arial",15,"bold"),bg="#6cd2d1")
+buscar.place(x=955,y=240)
+
+reporte1 = tk.Label(text="REPORTE DE",font=("arial",15,"bold"),bg="#6cd2d1")
+reporte1.place(x=1290,y=230)
+reporte2= tk.Label(text="ESTUDIANTES",font=("arial",15,"bold"),bg="#6cd2d1")
+reporte2.place(x=1290,y=260)
+
 # Lanzamos el loop principal de la ventana
 root.mainloop()
