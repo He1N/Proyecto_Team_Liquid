@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
+import subprocess
 
 #ventana principal
 root = tk.Tk()
@@ -103,6 +104,14 @@ photo5 = ImageTk.PhotoImage(image5)
 image_label5 = tk.Label(root, image=photo5,bg="#6cd2d1")
 image_label5.place(x=1265,y=310)
 
+#IMAGEN LIQUID
+liquid = Image.open("icons/liquid.png")
+liquid = liquid.resize((130, 130))
+photo6 = ImageTk.PhotoImage(liquid)
+
+image_label6 = tk.Label(root, image=photo6,bg="#6cc3d2")
+image_label6.place(x=15,y=30)
+
 #MINIDESCRIPCION
 #TEXTO1
 texto1_p1 = tk.Label(text="Permite crear nuevos",font=("arial",14),bg="#6cd2d1")
@@ -119,7 +128,7 @@ texto3_p1 = tk.Label(text="Permite eliminar información",font=("arial",14),bg="
 texto3_p1.place(x=640,y=540)
 texto3_p2 = tk.Label(text="del registro de estudiantes.",font=("arial",14),bg="#6cd2d1")
 texto3_p2.place(x=650,y=570)
-#TEXTO4
+#TEXTO4 - BUSQUEDA
 texto4_p1 = tk.Label(text="Permite buscar estudiantes",font=("arial",14),bg="#6cd2d1")
 texto4_p1.place(x=950,y=540)
 texto4_p2 = tk.Label(text="del registro.",font=("arial",14),bg="#6cd2d1")
@@ -130,22 +139,40 @@ texto4_p1.place(x=1290,y=540)
 texto4_p2 = tk.Label(text="reporte de estudiantes.",font=("arial",14),bg="#6cd2d1")
 texto4_p2.place(x=1270,y=570)
 
+def abrir_archivo_buscar():
+    archivo = "busqueda_gui.py"  # Reemplaza "ruta_del_archivo.py" por la ruta completa del archivo Python que deseas abrir
+    root.destroy()  # Cierra la ventana actual
+    subprocess.call(["python", archivo])
+
+def abrir_archivo_agregar():
+    archivo = "agrega.py"  # Reemplaza "ruta_del_archivo.py" por la ruta completa del archivo Python que deseas abrir
+    root.destroy()  # Cierra la ventana actual
+    subprocess.call(["python", archivo])
+
+def abrir_archivo_modificar():
+    archivo="modificar.py"
+    root.destroy()
+    subprocess.call(["python", archivo])
+
 #BOTONES DE ACCION
 #BOTON 1
-boton1 = tk.Button(root, text="AGREGAR",font=("arial",15,"bold"))
+boton1 = tk.Button(root, text="AGREGAR",font=("arial",15,"bold"),command=abrir_archivo_agregar)
 boton1.place(x=110,y=620)
 #BOTON 2
-boton1 = tk.Button(root, text="EDITAR",font=("arial",15,"bold"))
+boton1 = tk.Button(root, text="EDITAR",font=("arial",15,"bold"),command=abrir_archivo_modificar)
 boton1.place(x=420,y=620)
 #BOTON 3
 boton1 = tk.Button(root, text="ELIMINAR",font=("arial",15,"bold"))
 boton1.place(x=720,y=620)
 #BOTON 4
-boton1 = tk.Button(root, text="BUSCAR",font=("arial",15,"bold"))
+boton1 = tk.Button(root, text="BUSCAR",font=("arial",15,"bold"),command=abrir_archivo_buscar)
 boton1.place(x=1020,y=620)
 #BOTON 5
 boton1 = tk.Button(root, text="GENERAR",font=("arial",15,"bold"))
 boton1.place(x=1320,y=620)
+
+
+
 
 # Lanzamos el loop principal de la ventana
 root.mainloop()
